@@ -1,8 +1,7 @@
 #include<stdio.h>
 /**
- *main - entry point
- *
- *Fuction: Always zero in success
+ * main - this is main function
+ * Return: Always 0
  **/
 
 int main(void)
@@ -10,6 +9,8 @@ int main(void)
 	char i;
 
 	for (i = 'a'; i <= 'z'; i++)
+		putchar(i);
+	for (i = 'A'; i <= 'Z'; i++)
 		putchar(i);
 	putchar('\n');
 	return (0);
