@@ -4,7 +4,8 @@
 #include<stdio.h>
 /* betty style doc for function main goes there */
 /**
- * main-this is main function
+ * main - this is main function
+ * main-valueless
  * Function:always 0(success)
  **/
 int main(void)
