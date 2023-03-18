@@ -3,10 +3,10 @@
 /* more headers goes there */
 #include<stdio.h>
 /* betty style doc for function main goes there */
-/**
+/*
  * main-main function
  * Function:always 0
- **/
+ */
 int main(void)
 {
 	int n;
@@ -15,10 +15,11 @@ int main(void)
 	n = rand() - RAND_MAX / 2;
 	/* your code goes there */
 	if (n > 0)
-		printf("%d is a positive\n", n);
+		printf("%d is a positive", n);
 	else if (n == 0)
-		printf("%d is a zero\n", n);
+		printf("%d is a zero", n);
 	else if (n < 0)
-		printf("%d is a negative\n", n);
+		printf("%d is a negative", n);
+	printf("\n");
 	return (0);
 }
