@@ -1,62 +1,43 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<ctype.h>
-#include<string.h>
-/**
- *check_num - check - string there are digit
- *@str: array str
- *Return:0 success
- **/
-int check_num(char *str)
-{
-	/*declaring variables*/
-	unsigned int count;
-
-	count = 0;
-	while (count < strlen(str)) /*count string*/
-
-	{
-		if (!isdigit(str[count])) /*check if str the are digit*/
-		{
-			return (0);
-		}
-
-		count++;
-	}
-	return (1);
-}
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 
 /**
- *main - print the name of the program
- *@argc:count arguments
- *@argv:array arguments
- *Return: 0 success
- **/
+ * main - adds positive numbers
+ * @argc: the number of command line arguments
+ * @argv: an array of command line argument strings
+ *
+ * Return: 0 on success, 1 on error
+ */
 int main(int argc, char *argv[])
 {
-	int count;
-	int str_to_int;
-	int sum = 0;
+	int sum = 0, i;
 
-	count = 1;
-	while (count < argc) /*goes the whole array*/
+	if (argc == 1)
 	{
-		if (check_num(argv[count]))
+		printf("0\n");
+		return (0);
+	}
 
-				{
-				str_to_int = atoi(argv[count]); /*atoi converts string to int*/
-				sum = sum + str_to_int;
-				}
-				/*condition if one of the number contains symbols that are not digit*/
+	for (i = 1; i < argc; i++)
+	{
+		int j, n = 0;
 
-				else
-				{
-				printf("error\n");
+		for (j = 0; argv[i][j] != '\0'; j++)
+		{
+			if (!isdigit(argv[i][j]))
+			{
+				printf("Error\n");
 				return (1);
-				}
+			}
 
-				count++;
-				}
-				printf("%d\n", sum);
-				return (0);
-				}
+			n = n * 10 + (argv[i][j] - '0');
+		}
+
+		sum += n;
+	}
+
+	printf("%d\n", sum);
+	return (0);
+}
+
