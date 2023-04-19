@@ -8,7 +8,7 @@
  *@argv:an array of pointer to the arguments
  *Return:0
  **/
-int main(int _attribute_((_unused_)) argc, char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	int num1, num2;
 	char *op;
@@ -19,7 +19,7 @@ int main(int _attribute_((_unused_)) argc, char *argv[])
 		exit(98);
 	}
 
-	num1 = atoi(argv[1]0;
+	num1 = atoi(argv[1];
 			op = argv[2];
 			num2 = atoi(argv[3]);
 
@@ -29,12 +29,11 @@ int main(int _attribute_((_unused_)) argc, char *argv[])
 			exit(98);
 			}
 
-			if ((*op == '/' && num2 == 0) || (*op == '%' && num2 == 0))
+			if ((*op == '/' && num2 == 0) || 
+				(*op == '%' && num2 == 0))
 			{
 			printf("Error\n");
 			exit(100);
 			}
 			printf("%d\n", get_op_func(op)(num1, num2));
-
-			return (0);
-			}
+			
