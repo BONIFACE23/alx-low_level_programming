@@ -3,43 +3,45 @@
 #include <stdlib.h>
 
 /**
- * print_listint_safe - prints a listint_t linked list
- * @head: pointer to the first node of the list
+ * print_listint_safe - Prints a listint_t linked list
+ * @head: A pointer to the head of the list
  *
- * Return: the number of nodes in the list
+ * Return: The number of nodes in the list
  */
 size_t print_listint_safe(const listint_t *head)
 {
+	const listint_t *p1, *p2;
 	size_t count = 0;
-	const listint_t *node = head, *loop_node = NULL;
 
-	while (node)
+	if (head == NULL)
+		exit(98);
+
+	p1 = head;
+	p2 = head->next;
+
+	while (p2 != NULL && p2 < p1)
 	{
-		printf("[%p] %d\n", (void *)node, node->n);
+		printf("[%p] %d\n", (void *)p1, p1->n);
 		count++;
+		p1 = p1->next;
+		p2 = p2->next;
 
-		/* check if the next node is already in the list */
-		if (node >= node->next && loop_node == NULL)
-		{
-			loop_node = node;
-			/* go back to the beginning of the list */
-			node = head;
-			count = 0;
-			/* find the node where the loop starts */
-			while (node != loop_node)
-			{
-				node = node->next;
-				count++;
-			}
-			printf("-> [%p] %d\n", (void *)node, node->n);
-			break;
-		}
-		node = node->next;
+		if (p2 != NULL && p2 < p1)
+			exit(98);
 	}
 
-	if (loop_node == NULL)
-		return (count);
-	exit(98);
+	printf("[%p] %d\n", (void *)p1, p1->n);
+	count++;
+
+	while (p1 != NULL)
+	{
+		p1 = p1->next;
+		printf("[%p] %d\n", (void *)p1, p1->n);
+		count++;
+	}
+
+	return (count);
 }
+
 
 
